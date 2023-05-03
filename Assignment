@@ -10,7 +10,10 @@ def encrypt(s):
         character = uppercase_message[i]
         if character.isalpha():
             result += chr((ord(character) + s - 65) % 26 + 65)
-    block = [result[i:i+5] for i in range(0, len(result), 5)]
+    block = []
+    for i in range(0, len(result), 5):
+        block.append(result[i:i+5])
+
     k = 1
     for element in block:
         if k % 10 == 0:
